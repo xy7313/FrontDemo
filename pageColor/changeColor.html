@@ -1,0 +1,49 @@
+<html >
+<head>
+    <meta charset="utf-8">
+    <title>网页换肤</title>
+    <style>
+        body,ul,li{margin:0;padding:0;}
+        /*
+        要不要显示列表的那个·符号,link下面的下划线underline
+        margin:0 auto;这么写好像是可以实现距离上下有一点距离，居中
+        这个页面是简易版，核心功能是js改变css文件的引用
+        */
+        li{list-style-type:none;}
+        a:link,a:visited{text-decoration:none;}
+        a:hover{text-decoration:underline;}
+        #outer{width:500px;margin:0 auto;overflow:hidden;zoom:1;}
+        #skin li{float:left;width:60px;height:60px;cursor:pointer;overflow:hidden;margin-right:10px;text-indent:-9999px;border-width:40px;border-style:solid;}
+        #skin li.current{background:#fff!important;}
+        #red{border-color:red;background:red;}
+        #green{border-color:green;background:green;}
+        #black{border-color:black;background:black;}
+        
+    </style>
+        <link href="red.css" rel="stylesheet" type="text/css" />
+        <script>
+            window.onload = function(){
+                //注意是bytagname， 而且只有一个link，所以是link0;
+                // var oSkin = document.getElementById("skin").getElementsByTagName("li");如果只要skin下的li，可以连用多次getelem
+                var oCssLink = document.getElementsByTagName("link")[0];
+                var oLi = document.getElementsByTagName("li");
+                for (var i = 0; i<oLi.length; i++){
+                    oLi[i].onclick = function(){
+                        for (var j = 0; j<oLi.length; j++){
+                            oLi[j].className = "";
+                        }
+                        this.className = "current";
+                        oCssLink['href'] = this.id + ".css";
+                    }
+                }
+            };
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="skin">
+            <li id="red" class = "current" title="红色">红</li><li id="green" title="绿色">绿</li><li id="black" title="黑色">黑</li>
+        </ul>    
+    </div>
+</body>
+</html>
