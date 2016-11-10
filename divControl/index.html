@@ -1,0 +1,90 @@
+<html>
+<!--   
+    css:
+        /*margin 0是上下，auto是左右相等，可以居中*/
+    js:
+        1.显而易见changeStyle是给一个elem改变style的方法
+        2. window.onload:根据猜测是网页打开是调用该函数，w3cschool说对
+        3. 上述函数第一步：创建对象，得到所有btn，div和所有属性，属性值
+        4. for loop: 给每个btn编号并设置对应的方法，以便在点击不同btn的时候执行不同参数的函数
+        5. this==&&那句：根据注释掉后网页的结果猜测，这句是为了重置block，要点在于先判断了==，后判断&&
+            顺便再贴一遍js中这个奇葩的东西：
+            或，与运算 运算结果是true的那部分，
+                false||"hello"
+                或运算，一个true，输出true的部分："hello"
+                "hello"||"world"
+                或运算，两个true，输出第一个true：“hello”
+                ""||false
+                或运算， 都是false，输出后一个: false
+                "hello"&&"world"
+                与运算， 都是true，输出后一个: "world"
+                ""&&false
+                与运算，都false，输出前一项:""
+                "world"&& false
+                与运算，一个false， 输出false项:false
+        6. 找个好玩的事情，变色部分改成-每次点击出随机色，用了一个直接生成属性值字符串的方法
+-->
+
+<head>
+    <meta charset="utf-8">
+    <title>控制div属性</title>
+    <style>
+        #outer {
+            width: 500px;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+        }
+        
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: black;
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
+    <script>
+        var ranColor = function getRandomColor(){
+            var rgb='rgb('+Math.floor(Math.random()*255)+','
+                            +Math.floor(Math.random()*255)+','
+                            +Math.floor(Math.random()*255)+')';
+            console.log(rgb);
+            return rgb;
+        };
+        var changeStyle = function (elem, attr, value){
+	        elem.style[attr] = value;
+        };
+        window.onload = function (){
+    	    var oBtn = document.getElementsByTagName("input");
+	        var oDiv = document.getElementById("div1");
+    	    var oAtt = ["width","height","background","display","display"];
+	        var oVal = ["200px","200px",ranColor,"none","block"];
+
+    	    for (var i = 0; i < oBtn.length; i++){
+	    	    oBtn[i].index = i;
+    		    oBtn[i].onclick = function (){
+                	if (this.index == 2){
+		        	    changeStyle(oDiv, oAtt[this.index], ranColor());
+                    }else{
+                        this.index == oBtn.length - 1 && (oDiv.style.cssText = "");
+		        	    changeStyle(oDiv, oAtt[this.index], oVal[this.index]);
+                    }    
+    		    }	
+	        }
+        };
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <input type="button" value="变宽" />
+        <input type="button" value="变高" />
+        <input type="button" value="变色" />
+        <input type="button" value="隐藏" />
+        <input type="button" value="重置" />
+        <div id="div1"></div>
+    </div>
+</body>
+
+</html>
