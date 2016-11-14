@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <!--
+        1. 这个例子用了之前randomcolor的方法
+        2. oBtn取第0个元素，在复制的时候去和onclick的时候指明都可以
+        3. randomcolor种注意rcolor这个值的拼接
+        4. 注意ranc这里，如果直接把ranC设置为返回值，那每次刷新一次，产生一个ranC
+        （可以从console.log中看出来），如果把ranC赋值为函数（代码在下面），在后面for循环中才调用，
+        可以得到三个随机色的div，并且每次刷新都是新的随机色
+        var ranC = function getRandomColor(){
+            var Rcolor = 'rgb('+Math.floor(Math.random()*255)+','
+                            +Math.floor(Math.random()*255)+','
+                            +Math.floor(Math.random()*255)+')';
+            console.log(Rcolor);
+            return Rcolor;
+        };//只有这里
+        window.onload = function (){
+            var oDiv = document.getElementsByTagName("div");
+            var oBtn = document.getElementsByTagName("button");
+            oBtn[0].onclick = function (){
+                for(var i = 0; i < oDiv.length; i++){
+                    oDiv[i].style.background = ranC();//和这里有区别
+                    console.log(oDiv[i].style.background);
+
+                } 
+            }	
+        }
+    -->
+    <meta charset="utf-8">
+    <title>用循环将三个DIV变色</title>
+    <style>
+ div{float:left;width:100px;height:100px;margin:0 5px;background:black;}
+</style>
+    <script>
+        var ranC = function getRandomColor(){
+            var Rcolor = 'rgb('+Math.floor(Math.random()*255)+','
+                            +Math.floor(Math.random()*255)+','
+                            +Math.floor(Math.random()*255)+')';
+            console.log(Rcolor);
+            return Rcolor;
+        }();
+        window.onload = function (){
+            var oDiv = document.getElementsByTagName("div");
+            var oBtn = document.getElementsByTagName("button");
+            oBtn[0].onclick = function (){
+                for(var i = 0; i < oDiv.length; i++){
+                    oDiv[i].style.background = ranC;
+                    console.log(oDiv[i].style.background);
+
+                } 
+            }	
+        }
+</script>
+</head>
+
+<body>
+    <button>点击将DIV变色</button>
+    </br>
+        <div></div>
+        <div></div>
+        <div></div>
+</body>
+
+</html>
