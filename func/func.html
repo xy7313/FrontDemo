@@ -7,7 +7,7 @@
     <script>
         window.onload=function(){
             var para = document.getElementsByTagName("input");
-            //没加[0]会一直出错，可能觉得没有指定是哪个btn
+            //没加[0]会一直出错，ByTagName可能觉得没有指定是哪个btn
             var obtn = document.getElementsByTagName("button")[0];
             obtn.onclick= function(){
                 for (var i = 0; i<para.length;i++){

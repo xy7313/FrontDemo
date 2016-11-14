@@ -3,7 +3,8 @@
 <head>
     <!--
         1. 这个例子用了之前randomcolor的方法
-        2. oBtn取第0个元素，在复制的时候去和onclick的时候指明都可以
+        2. oBtn取第0个元素，在复制的时候去和onclick的时候指明都可以,
+        （因为是getElementsByTagName，所以要标记第几个，getElementById不用标第几个）
         3. randomcolor种注意rcolor这个值的拼接
         4. 注意ranc这里，如果直接把ranC设置为返回值，那每次刷新一次，产生一个ranC
         （可以从console.log中看出来），如果把ranC赋值为函数（代码在下面），在后面for循环中才调用，
