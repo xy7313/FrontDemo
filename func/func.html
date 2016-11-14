@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <!--这个例子没有按照源代码写，自己写的，没有加css样式-->
+    <meta charset="utf-8">
+    <title>func</title>
+    <script>
+        window.onload=function(){
+            var para = document.getElementsByTagName("input");
+            var obtn = document.getElementsByTagName("button")[0];
+            obtn.onclick= function(){
+                for (var i = 0; i<para.length;i++){
+                    alert(para[i].value);
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <p><input type="text" value="北京市" /></p>
+    <p><input type="text" value="朝阳区" /></p>
+    <p><input type="text" value="人民" /></p>
+    <p><button>传参</button></p>
+</body>
+
+</html>
