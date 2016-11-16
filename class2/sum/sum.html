@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>sum</title>
+    <script>
+        window.onload=function(){
+            var para = document.getElementsByTagName("input")[0];
+            var obtn = document.getElementsByTagName("button")[0];
+            var reDiv = document.getElementById("result");
+            //从键盘读取数据的方法，第一次见,正则嘛，额，输入要匹配这个规则，如果输入中文符号，会被“”取代，就是输入不上
+            para.onkeyup = function (){
+                this.value = this.value.replace(/[^(\d)|(,)]/,"")
+            }	
+            obtn.onclick= function(){
+                var sum = 0;
+                var arr = para.value.split(',')
+                for (var i = 0; i<arr.length;i++){
+                    //这里不parseint会字符串拼接，另外上面的for可以用for in
+                    sum +=parseInt(arr[i]);
+                    console.log(sum);
+                }
+                reDiv.textContent=sum;           
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <p><input type="text" value="1,2,3" />输入数字求和，数字之间用半角","号分隔</p>
+    <p><button>sum</button></p>
+    <div id = "result">
+
+    </div>
+</body>
+
+</html>
