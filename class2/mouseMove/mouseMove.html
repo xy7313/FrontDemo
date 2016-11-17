@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>图片列表：鼠标移入/移出改变图片透明度</title>
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        #imgList li img {
+            float: left;
+            opacity: 0.3;
+            width: 600px;
+            height: 400px;
+        }
+        
+        #imgList li.current img {
+            opacity: 1
+        }
+    </style>
+    <script>
+window.onload = function (){
+	var oLi = document.getElementsByTagName("li");	
+	for (var i = 0; i < oLi.length; i++){
+		oLi[i].onmouseover = function (){
+			this.className = "current"	
+		};
+		oLi[i].onmouseout = function (){
+			this.className = ""	
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+    <ul id="imgList">
+        <li><img src="img/1.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/2.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/3.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/4.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/5.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/6.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/7.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/8.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/9.jpg" alt="祭出一波必应壁纸" /></li>
+        <li><img src="img/10.jpg" alt="祭出一波必应壁纸" /></li>
+    </ul>
+</body>
+
+</html>
