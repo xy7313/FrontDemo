@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>传参div属性</title>
+    <style>
+        #div1 {
+            width: 250px;
+            height: 250;
+            background: black;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        window.onload = function (){
+    	    var oBtn = document.getElementsByTagName("button");
+    	    var oDiv =  document.getElementById("div1");
+
+    	    oBtn[0].onclick = function(){
+                //记得放进来啊，每次点击都会获取input中的value，不然网页刷新才获取哦
+                var oAttr =  document.getElementById("attr").value;
+                var oV = document.getElementById("valueOfattr").value;
+                oDiv.style[oAttr] = oV;
+                console.log(oV);
+            };
+            oBtn[1].onclick = function(){
+                // 删除，重置样式，上次见到同样功能的代码长这样：oDiv.style.cssText = "";
+              	oDiv.removeAttribute("style");
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <center>
+            <p>属性名：<input type="text" id="attr" value="background" /></p>
+            <p>属性值：<input type="text" id="valueOfattr" value="blue" /></p>
+            <p><button>change</button><span><button>reset</button></span></p>
+        </center>
+        <div id="div1"></div>
+    </div>
+</body>
+
+</html>
