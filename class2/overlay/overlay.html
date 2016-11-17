@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>overlay</title>
+    <style>
+    /*好像根本没学会写css*/
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            display: none;
+        }
+        
+        #win {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 200px;
+            background: #fff;
+            border: 4px solid #f90;
+            margin: -102px 0 0 -202px;
+            display: none;
+        }
+        
+        h2 {
+            font-size: 12px;
+            text-align: right;
+            background: #FC0;
+            border-bottom: 3px solid #f90;
+            padding: 5px;
+            margin:0;
+        }
+        
+        h2 span {
+            color: #f90;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #f90;
+            padding: 0 2px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oBtn = document.getElementsByTagName("button")[0];
+            var oDivWin = document.getElementById("win");
+            var oDivOver = document.getElementById("overlay");
+            var oClose = document.getElementById("close");
+
+            oBtn.onclick = function(){
+                oDivOver.style.display="block";
+                oDivWin.style.display="block";
+            }
+            oClose.onclick = function(){
+                oDivOver.style.display="none";
+                oDivWin.style.display="none";
+            }
+
+        };
+    </script>
+</head>
+
+<body>
+    <div id="overlay"></div>
+    <div id="win">
+        <h2><span id="close">×</span></h2>
+    </div>
+    <p><button>overlay</button></p>
+
+</body>
+
+</html>
