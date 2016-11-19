@@ -2,6 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>简易选项卡</title>
+<!--思路是用mouseover事件，鼠标划在哪个tab上，tab改变样式，对应ul的display=“block”，其他的none-->
 <style>
 body,ul,li{margin:0;padding:0;}
 body{font:12px/1.5 Tahoma;}
@@ -18,14 +19,14 @@ window.onload = function (){
 	var oUl = document.getElementById("content").getElementsByTagName("ul");
 	
 	for(var i = 0; i < oLi.length; i++){
-        //把i存在object：oLi[i]d index属性中，得以保留
+        //把i存在object：oLi[i]d index属性中，得以保留，如果直接想oUl[i]，得到的i是3，不对，原因是闭包了
 		oLi[i].index = i;
 		oLi[i].onmouseover = function (){
 			for(var n = 0; n < oLi.length; n++) oLi[n].className="";
 			this.className = "current";
 			for(var n = 0; n < oUl.length; n++) oUl[n].style.display = "none";
             console.log(i);
-			oUl[this.index].style.display = "block"
+			oUl[this.index].style.display = "block";
 		};	
 	}
 }
