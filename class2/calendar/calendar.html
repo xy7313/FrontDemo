@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <title>calendar</title>
 <style>
+/*自己写了一遍css写的乱七八糟，最后还是拿了原css，太难了QAQ*/
 *{margin:0;padding:0;}
 body{font:12px/1.5 Tahoma;}
 #calendar{width:248px;overflow:hidden;zoom:1;background:lightgoldenrodyellow;margin:10px auto;padding:0 0 10px 10px;}
@@ -14,6 +15,7 @@ body{font:12px/1.5 Tahoma;}
 </style>
 <script>
 window.onload = function(){
+    // 注意li要通过calendar才能拿到，strong和p都要通过msg才能拿到
     var ca = document.getElementById("calendar").getElementsByTagName("li");
     var msg = document.getElementById("msg");
     var mon = msg.getElementsByTagName("strong")[0];
