@@ -35,6 +35,7 @@ window.onload = function (){
 			oLi[this.index].className = "";
 			oImg[this.index].style.display = "none"
 		};
+        // 一下两段代码因为function内容跟上面一样，就注释掉试了一下，图会抖，不知道为啥
 		oImg[i].onmouseover = function(){
             console.log("oimg:"+this);
 			oLi[this.index].className = "zindex";
