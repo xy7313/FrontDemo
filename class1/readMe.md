@@ -1,1 +1,1 @@
-the files with name **-origin is the source code from http://www.fgm.cc/learn/
+the files named fileName-origin are the source code from http://www.fgm.cc/learn/
