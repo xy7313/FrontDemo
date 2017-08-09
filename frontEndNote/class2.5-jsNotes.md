@@ -84,6 +84,7 @@ user.fullname();
 7. `window.onload = function(){...}` make sure to load DOM element first
 8. Popup boxes: alert, confirm box, prompt box
 
+
 #### 3. promise
 1. 
 ```
