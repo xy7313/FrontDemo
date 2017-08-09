@@ -56,13 +56,14 @@ user.fullname();
 
 #### 6. String
 1. Can use single / double quotes to enclose the string.
-2. arr.length
+2. str.length
 3. escape the string, eg: `var username = “arungopan\”gopakumar”;`
-4. arr.indexOf("oneElement");
-5. 
-
-
-
+4. `str.indexOf("oneElement");`
+5. `test_str.match(“Arun”) ` //Used to find an occurrence of a substring in a string.
+6. Both indexOf and match are case sensitive
+7. `str.toUpperCase(); /str.toLowerCase();`
+8. `str.replace(new RegExp(',', 'g'), ''); `, `str.replace(‘username’, ‘Arun’);`
+9. `str.substring(0,5);`
 
 #### 7. Date
 2. `var date_str = new Date();`//Created using new Date();
@@ -73,6 +74,15 @@ user.fullname();
 6. `date_str.setDate(date_str.getDate() + 2);` //Adding 2 days to the current day
 7. `date_str.setFullYear(date_str.getFullYear() + 2);` //Adding 2 years to the current year
 
+#### 8. HTML DOM(document object model)
+1. getElementById, document.getElementsByTagName, getElementsByClassName
+2. Changing content: .innerHTML
+3. Changing Attributes: .className
+4. Changing Style: .style
+5. Event binding: onclick
+6. EventListeners: `document.getElementById("‘my_div’").addEventListener(“click”, test_fn);`, `removeEventListener(“click”, test_fn);`
+7. `window.onload = function(){...}` make sure to load DOM element first
+8. Popup boxes: alert, confirm box, prompt box
 
 #### 3. promise
 1. 
