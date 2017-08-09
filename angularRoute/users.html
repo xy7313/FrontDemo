@@ -1,0 +1,5 @@
+<div ng-repeat="user in users track by $index">
+  {{user.username+','+user.place}}
+  <!--check index : right click view user, click inspect-->
+  <a href="#/users/{{$index}}">view user</a> <br />
+</div>
