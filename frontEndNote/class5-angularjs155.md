@@ -39,7 +39,7 @@ $scope.a_users = [
     {"username":"xy5","place":"p5"},
     ];
 });
-//html-with a search table/add filter using '|'
+//html-with a search table/add filter using '|' (bar)
 <body ng-app="myapp">
     <div ng-controller = "mycntrl">
         {{org}}
