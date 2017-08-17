@@ -74,7 +74,7 @@
 
 13. Using component as directive
 
-    
+    ![tu]()
 
    
 #### TypeScript
