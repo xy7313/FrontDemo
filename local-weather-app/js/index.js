@@ -28,11 +28,8 @@ function getWeather(lat, lon, countryCode) {
         backgroundId = [299, 499, 599, 699, 799, 800],
         backgroundIcon = [
           'thunderstorm',
-          // 'sprinkle',
           'rain',
           'snow',
-          // 'fog',
-          // 'night-clear',
           'cloudy',
         ],
         backgroundImg = [
