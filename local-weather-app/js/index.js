@@ -20,12 +20,12 @@ function getWeather(lat, lon, countryCode) {
 
       var condition = weatherData.weather[0].description,
         id = weatherData.weather[0].id,
-        // speed = Number((weatherData.wind.speed * 0.86897624190816).toFixed(1)),
-        // deg = weatherData.wind.deg,
-        // windDir = 'N',
+        speed = Number((weatherData.wind.speed * 0.86897624190816).toFixed(1)),
+        deg = weatherData.wind.deg,
+        windDir = 'N',
         iconClass,
         bgIndex,
-        backgroundId = [299, 499, 599, 699, 799, 800],
+        backgroundId = [ 299, 699, 799],
         backgroundIcon = [
           'thunderstorm',
           'rain',
@@ -33,8 +33,10 @@ function getWeather(lat, lon, countryCode) {
           'cloudy',
         ],
         backgroundImg = [
-          '',
-          ''
+          'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/Thunderstorm-5best.jpg?raw=true',
+          'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/rain.jpg?raw=true',
+          'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/Snow.jpg?raw=true',
+          'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/cloudy-field-2.jpg?raw=true'
         ];
 
       backgroundId.push(id);
@@ -43,13 +45,13 @@ function getWeather(lat, lon, countryCode) {
       iconClass = backgroundIcon[bgIndex];
 
       //Get wind compass direction. If API returns null, assume 0 degrees.
-      // if (deg) {
-      //   var index = Math.floor((deg / 22.5) + 0.5) % 16,
-      //     compassDirections = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
-      //       'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW',
-      //     ],
-      //     windDir = compassDirections[index];
-      // }
+      if (deg) {
+        var index = Math.floor((deg / 22.5) + 0.5) % 16,
+          compassDirections = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
+            'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW',
+          ],
+          windDir = compassDirections[index];
+      }
 
       //determine F or C based on country and add temperature to the page.
       // var fahrenheit = ['US', 'BS', 'BZ', 'KY', 'PL'];
