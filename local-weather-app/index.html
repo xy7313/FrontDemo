@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Local Weather App</title>
+    <link rel="stylesheet" href="css/style.css">  
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <!--
+    - Source: https://freecodecamp.com/challenges/zipline-show-the-local-weather
+    - Implemented using JavaScript, jQuery, HTML5,  Bootstrap, Weather-Icons CSS libraries.
+    - API: https://fcc-weather-api.glitch.me
+  -->
+  <div class="container">
+    <div id="title">Local Weather</div>
+    <div id="results">
+      <div id="city"></div>
+      <div id="temperature"></div>
+      <div id="condition"></div>
+  <!--     <div id="wind-speed"></div> -->
+    </div>
+    <div>
+      <input id="convert-button" type="button" class="btn btn-lg btn-primary" value="°F / °C" />
+    </div>
+  </div>
+
+  <footer class="footer">
+    Copyright &copy; 2017 xy7313. All rights reserved. <a href="https://github.com/xy7313" target="_blank">Github: <i class="fa fa-github"></i></a> 
+  </footer>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script  src="js/index.js"></script>
+  </body>
+</html>
