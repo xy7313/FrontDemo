@@ -3,7 +3,6 @@ $(document).ready(function() {
 });
 
 function getLocation() {
-  // Using the GEO IP API due to HTTP restrictions from OpenWeatherMap
   $.getJSON('https://freegeoip.net/json/?callback=?', function(loc) {
     $('#city').text(loc.city + ', ' + loc.region_name + ', ' + loc.country_name+ ', ' + loc.latitude+ ', ' + loc.longitude);
     getWeather(loc.latitude, loc.longitude, loc.country_code);
@@ -22,16 +21,16 @@ function getWeather(lat, lon, countryCode) {
         deg = weatherData.wind.deg,
         iconClass,
         bgIndex,
-        backgroundId = [ 299, 699, 799],
+        backgroundId = [ 299, 599, 699],
         backgroundIcon = [
-          'thunderstorm',
-          'rain',
-          'snow',
-          'cloudy',
+          'Thunderstorm',
+          'Rain',
+          'Snow',
+          'Clouds,Mist',
         ],
         backgroundImg = [
           'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/Thunderstorm-5best.jpg?raw=true',
-          'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/rain.jpg?raw=true',
+          'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/rain2.jpg?raw=true',
           'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/Snow.jpg?raw=true',
           'https://github.com/xy7313/FrontDemo/blob/master/local-weather-app/imgs/cloudy-field-2.jpg?raw=true'
         ];
@@ -39,10 +38,18 @@ function getWeather(lat, lon, countryCode) {
       backgroundId.push(id);
       bgIndex = backgroundId.sort().indexOf(id);
       $('body').css('background-image', 'url(' + backgroundImg[bgIndex] + ')');
-      
       iconClass = backgroundIcon[bgIndex];
+
+      // for(var i = 0; i<backgroundIcon.length; i++){
+      //   console.log(weatherData.weather[0].main);  
+      //   if(backgroundIcon[i].indexOf(weatherData.weather[0].main)>-1){
+      //     $('body').css('background-image', 'url(' + backgroundImg[i] + ')');
+      //     iconClass = backgroundIcon[i];
+      //   } 
+      // }
+      
+      
       $('#temperature').text(tempF + '° F');
-      //write conditions
       $('#condition').html(
         '<i class="wi wi-' + iconClass + '"></i><br>' + condition);
     })
@@ -60,7 +67,7 @@ $('#convert-button').click(function() {
     $('#temperature').text(tempF + '° F');
   }
 
-  //this.blur(); 
+  this.blur(); 
 });
 
 

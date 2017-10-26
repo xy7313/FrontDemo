@@ -22,7 +22,7 @@ body {
   margin-bottom: 1.5em;
   margin-top: 1.5em;
 }
-#results{
+#weather{
   border: 1px  #ffffff;
     border-radius: 5%;
     display: inline-block;
